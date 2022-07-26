@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const ContainerHeader = styled.div`
   width: 100%;
+
   display: flex;
   justify-content: center;
 ` 
@@ -13,6 +14,9 @@ export const Header = styled.header`
   height: 6.5rem;
   padding: 2rem 10rem;
   width: 100%;
+  max-width: 120rem;
+  margin-right: auto;
+  margin-left: auto;
 `
 
 export const LogoImg = styled.img`
