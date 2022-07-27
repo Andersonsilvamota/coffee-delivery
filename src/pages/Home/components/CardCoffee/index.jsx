@@ -21,9 +21,13 @@ export function CardCoffee(){
               <footer>
                 R$<strong>{coffe.price}</strong>
                 <div className="quantity">
-                  <Minus />
-                  0
-                  <Plus />
+                  <div className="buttonMinus">
+                    <Minus weight="bold"/>
+                  </div>
+                    0
+                  <div className="buttonPlus">
+                    <Plus weight="bold"/>
+                  </div>
                 </div>
                 <div className="cartButton">
                   <ShoppingCart size={22} color="#fff" weight="fill"/>

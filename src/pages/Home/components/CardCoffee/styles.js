@@ -74,18 +74,32 @@ export const CardCoffee = styled.div`
       background-color: ${props => props.theme.base['base-button']};
       padding: 8.5px 8px;
       border-radius: 6px;
+      svg {
+        color: ${props => props.theme.produto['purple']};
+
+      }
+
+      svg:hover {
+        color: ${props => props.theme.produto['purple-dark']};
+        cursor: pointer;
+
+      }
     }
   }
-
   .cartButton {
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 6px;
-    width: 38px;
-    height: 38px;
-    padding: 8;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
     background-color: ${props => props.theme.produto['purple-dark']};
+    
+    &:hover {
+      background-color: ${props => props.theme.produto['purple']};
+      cursor: pointer;
+    }
   }
  
 `
