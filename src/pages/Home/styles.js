@@ -130,7 +130,11 @@ export const CardCoffee = styled.div`
     line-height: 130%;
 
   }
-
+  .tags {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
   .tag {
     background-color: ${props => props.theme.produto['yellow-light']};
     color: ${props => props.theme.produto['yellow-dark']};
@@ -140,6 +144,7 @@ export const CardCoffee = styled.div`
     font-size: 10px;
     margin-top: 12px;
     margin-bottom: 16px;
+    text-transform: uppercase;
   }
 
   h3 {

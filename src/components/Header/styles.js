@@ -48,7 +48,7 @@ export const Localization = styled.a`
   border-radius: 6px;
 
 `
-export const Cart = styled.a`
+export const Cart = styled.div`
   background-color: ${props => props.theme.produto['yellow-light']};
   padding: 8px;
   height: 2.5rem;

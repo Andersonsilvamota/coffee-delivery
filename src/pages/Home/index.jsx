@@ -38,13 +38,17 @@ export function Home(){
 
         <h2>Nossos cafés</h2>
         <Styles.ContentCoffe>
-        {console.log(coffees.name)}
         {coffees.map(coffe => (
+          <Styles.CardCoffee key={coffe.id}>
 
-          <Styles.CardCoffee>
-            <div>
+            <div >
               <img src={`/coffes/${coffe.photo}`} width="120" height="120"/>
-              <p className="tag">TRADICIONAL</p>
+              <div className="tags">
+                {coffe.tags.map(tag => (
+                  <p key={`${coffe.id}${tag}`} className="tag">{tag}</p>
+
+                ))}
+              </div>
               <h3>{coffe.name}</h3>
               <p>{coffe.description}</p>
               <footer>
