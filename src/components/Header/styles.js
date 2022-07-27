@@ -12,7 +12,7 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   height: 6.5rem;
-  padding: 2rem 10rem;
+  padding: 2rem 15rem;
   width: 100%;
   max-width: 120rem;
   margin-right: auto;

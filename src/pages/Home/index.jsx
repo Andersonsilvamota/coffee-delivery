@@ -1,6 +1,8 @@
-import { ShoppingCart, Timer, Coffee, Package } from "phosphor-react";
+import { ShoppingCart, Timer, Coffee, Package, Minus, Plus } from "phosphor-react";
 import * as Styles from "./styles";
 import imgBanner from '../../assets/banner.svg'
+import cafeFoto from '../../assets/Coffee.png'
+import {coffees} from '../../../data'
 
 export function Home(){
   return(
@@ -33,6 +35,35 @@ export function Home(){
           <img src={imgBanner} />
         </Styles.ContentRight>
       </Styles.ConteinerBanner>
+
+        <h2>Nossos cafés</h2>
+        <Styles.ContentCoffe>
+        {console.log(coffees.name)}
+        {coffees.map(coffe => (
+
+          <Styles.CardCoffee>
+            <div>
+              <img src={`/coffes/${coffe.photo}`} width="120" height="120"/>
+              <p className="tag">TRADICIONAL</p>
+              <h3>{coffe.name}</h3>
+              <p>{coffe.description}</p>
+              <footer>
+                R$<strong>{coffe.price}</strong>
+                <div className="quantity">
+                  <Minus />
+                  0
+                  <Plus />
+                </div>
+                <div className="cartButton">
+                  <ShoppingCart color="#fff" weight="fill"/>
+
+                </div>
+              </footer>
+            </div>
+          </Styles.CardCoffee>
+          ))}
+          
+        </Styles.ContentCoffe>
     </Styles.ConteinerHome>
   )
 }
