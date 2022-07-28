@@ -22,13 +22,19 @@ export const ContainerCheckout = styled.div`
 
 `
 
+export const ContentCompletOrder = styled.div`
+  height: 36.9375rem;
+`
+
 export const ContentAddress = styled.div`
   width: 40rem;
-  height: 23.25rem;
+  //height: 23.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  margin-bottom: 12px;
   padding: 2.5rem;
+  border-radius: 6px;
   background-color: ${props => props.theme.base['base-card']};
 
   .title {
@@ -40,6 +46,7 @@ export const ContentAddress = styled.div`
       color: ${props => props.theme.produto['yellow-dark']};
     }
   }
+
 
   .form {
     width: 100%;
@@ -102,4 +109,27 @@ export const OrderCart = styled.div`
     color: ${props => props.theme.base['base-subtitle']};
 
   }
+`
+
+export const Buttons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+`
+
+export const ButtonPay = styled.button`
+  border: none;
+  width: 12rem;
+  height: 3.125rem;
+  padding: 12px 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  justify-content: space-between;
+  background-color:${props => props.theme.base['base-button']} ;
+  svg {
+    color: ${props => props.theme.produto['purple']};
+  }
+
 `
