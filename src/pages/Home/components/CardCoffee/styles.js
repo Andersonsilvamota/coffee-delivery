@@ -55,7 +55,6 @@ export const CardCoffee = styled.div`
     font-family: 'Baloo 2';
     font-weight: 700;
     font-size: 20px;
-    
     color: ${props => props.theme.base['base-subtitle']};
   }
 
@@ -74,15 +73,14 @@ export const CardCoffee = styled.div`
       background-color: ${props => props.theme.base['base-button']};
       padding: 8.5px 8px;
       border-radius: 6px;
+
       svg {
         color: ${props => props.theme.produto['purple']};
-
       }
 
       svg:hover {
         color: ${props => props.theme.produto['purple-dark']};
         cursor: pointer;
-
       }
     }
   }
