@@ -42,17 +42,6 @@ export const ContentAddress = styled.div`
   border-radius: 6px;
   background-color: ${props => props.theme.base['base-card']};
 
-  .title {
-    display: flex;
-    gap: 0.5rem;
-    padding-bottom: 1rem;
-
-    svg {
-      color: ${props => props.theme.produto['yellow-dark']};
-    }
-  }
-
-
   .form {
     width: 100%;
     display: grid;

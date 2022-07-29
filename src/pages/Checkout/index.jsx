@@ -1,23 +1,22 @@
 import * as Styles from './styles'
 import { CurrencyDollar, MapPinLine, CreditCard, Bank, Money, Minus, Plus, Trash } from 'phosphor-react'
 import coffes from '../../assets/Coffee.png'
+import { TitleSubtitleIcon } from '../../components/TitleSubtitleIcon'
 
 export function Checkout(){
   return(
     <Styles.Conteiner>
-      
       <Styles.ContainerCheckout>
         <Styles.ContentCompletOrder>
         <h2>Complete seu pedido</h2>
 
         <Styles.ContentAddress>
-          <div className='title'>
-            <MapPinLine size={22} />
-            <div>
-              <label>Endereço de Entrega</label>
-              <p>Informe o endereço onde deseja receber o pedido</p>
-            </div>
-          </div>
+          <TitleSubtitleIcon
+              title="Endereço de Entrega"
+              subtitle="Informe o endereço onde deseja receber o pedido"
+              icon={<MapPinLine color={'#C47F17'} size={22} />}
+            />
+          
           <div className='form'>
             <input className='cep' placeholder='CEP'/>
             <input className='street' placeholder='Rua'/>
@@ -29,13 +28,18 @@ export function Checkout(){
           </div>
         </Styles.ContentAddress>
         <Styles.ContentAddress>
-          <div className='title'>
+          <TitleSubtitleIcon
+            title="Pagamento"
+            subtitle="O pagamento é feito na entrega. Escolha a forma que deseja pagar"
+            icon={<CurrencyDollar color={'#8047F8'} size={22} />}
+          />
+          {/* <div className='title'>
             <CurrencyDollar size={22} />
             <div>
               <label>Endereço de Entrega</label>
               <p>Informe o endereço onde deseja receber o pedido</p>
             </div>
-          </div>
+          </div> */}
           <Styles.Buttons>
             <Styles.ButtonPay>
               <CreditCard size={22}/>
