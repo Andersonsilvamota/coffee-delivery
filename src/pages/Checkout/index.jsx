@@ -1,13 +1,14 @@
 import * as Styles from './styles'
-import { CurrencyDollar, MapPinLine, CreditCard, Bank, Money } from 'phosphor-react'
+import { CurrencyDollar, MapPinLine, CreditCard, Bank, Money, Minus, Plus, Trash } from 'phosphor-react'
+import coffes from '../../assets/Coffee.png'
 
 export function Checkout(){
   return(
     <Styles.Conteiner>
-
-        <h2>Complete seu pedido</h2>
+      
       <Styles.ContainerCheckout>
         <Styles.ContentCompletOrder>
+        <h2>Complete seu pedido</h2>
 
         <Styles.ContentAddress>
           <div className='title'>
@@ -52,9 +53,77 @@ export function Checkout(){
         </Styles.ContentAddress>
         </Styles.ContentCompletOrder>
         
-        <Styles.OrderCart>
-          <h2>Cafés selecionados</h2>
           
+        <Styles.OrderCart>
+        <h2>Cafés selecionados</h2>
+
+        <Styles.CartProduct>
+          <Styles.ItemCart>
+            <img src={coffes} />
+            <div>
+              <p className='titleCoffe'>Expresso Tradicional</p> 
+              <div className='buttons'>
+                <div className="quantity">
+                  <div className="buttonMinus">
+                    <Minus weight="bold"/>
+                  </div>
+                    0
+                  <div className="buttonPlus">
+                    <Plus weight="bold"/>
+                  </div>
+                
+                </div>
+                <button>
+                  <Trash size={20}/>
+                  <p>REMOVER</p>
+                </button>  
+              </div>
+              
+            </div>
+          </Styles.ItemCart>
+            <hr color='#E6E5E5' width = "100%" size="2" />
+          
+          <Styles.ItemCart>
+            <img src={coffes} />
+            <div>
+              <p className='titleCoffe'>Expresso Tradicional</p> 
+              <div className='buttons'>
+                <div className="quantity">
+                  <div className="buttonMinus">
+                    <Minus weight="bold"/>
+                  </div>
+                    0
+                  <div className="buttonPlus">
+                    <Plus weight="bold"/>
+                  </div>
+                
+                </div>
+                <button>
+                  <Trash size={20}/>
+                  <p>REMOVER</p>
+                </button>  
+              </div>
+              
+            </div>
+          </Styles.ItemCart>
+          <hr color='#E6E5E5' width = "100%" size="2" />
+          <Styles.TotalCart>
+            <div className='totalItens'>
+              <span>Total de itens</span>
+              <small>R$ 20.70</small>
+            </div>
+            <div className='entrega'>
+              <span>Entrega</span>
+              <small>R$ 20.70</small>
+            </div>
+            <div className='total'>
+              <span>TOTAL</span>
+              <small>R$ 20.70</small>
+            </div>
+
+          </Styles.TotalCart>
+          <Styles.ConfirmarPedidoButton>CONFIRMAR PEDIDO</Styles.ConfirmarPedidoButton>
+        </Styles.CartProduct>
         </Styles.OrderCart>
       </Styles.ContainerCheckout>
     </Styles.Conteiner>

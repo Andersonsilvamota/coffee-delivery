@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 export const Conteiner = styled.div`
   padding: 2rem 15rem;
+
   h2 {
     font-family: 'Baloo 2';
     font-size: 18px;
     color: ${props => props.theme.base['base-subtitle']};
+    margin-bottom: 2rem;
 
   }
 `
@@ -17,8 +19,11 @@ export const ContainerCheckout = styled.div`
   margin-right: auto;
   margin-left: auto;
   display: flex;
+  gap: 3rem;
   //flex-direction: column;
   padding: 1rem 0;
+
+
 
 `
 
@@ -101,13 +106,89 @@ export const ContentAddress = styled.div`
 
 export const OrderCart = styled.div`
   width: 28rem;
-  border: 1px solid red;
-
+  
   h2 {
     font-family: 'Baloo 2';
     font-size: 18px;
     color: ${props => props.theme.base['base-subtitle']};
 
+  }
+`
+export const CartProduct = styled.div`
+
+  background-color: ${props => props.theme.base['base-card']};
+  padding: 2.5rem;
+  border-radius: 6px 44px;
+  
+`
+export const ItemCart = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding-bottom: 3rem;
+  padding-top: 2rem;
+  
+  .titleCoffe {
+    padding-bottom: 0.5rem;
+    color: ${props => props.theme.base['base-subtitle']};
+    font-size: 1rem;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+
+  img{
+    width: 4.25rem;
+    height: 4.25rem;
+  }
+  .buttons {
+      display: flex;
+      gap: 6px;
+      height: 2rem;
+    }
+  .quantity {
+      display: flex;
+      flex-direction: row;
+      height: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background-color: ${props => props.theme.base['base-button']};
+      padding: 8.5px;
+      border-radius: 6px;
+      svg {
+        color: ${props => props.theme.produto['purple']};
+      }
+
+      svg:hover {
+        color: ${props => props.theme.produto['purple-dark']};
+        cursor: pointer;
+      }
+  }
+
+  button {
+    border: none;
+    background-color: ${props => props.theme.base['base-button']};
+    height: 2.5rem;
+    padding: 8.5px ;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    
+    p {
+      color: ${props => props.theme.base['base-text']};
+    }
+
+    svg {
+      color: ${props => props.theme.produto['purple']};
+    }
+    svg:hover {
+        color: ${props => props.theme.produto['purple-dark']};
+        cursor: pointer;
+      }
   }
 `
 
@@ -132,4 +213,27 @@ export const ButtonPay = styled.button`
     color: ${props => props.theme.produto['purple']};
   }
 
+`
+
+export const TotalCart = styled.div`
+
+  .totalItens, .entrega, .total{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px;
+  }
+
+  .total{
+    font-weight: bold;
+  }
+`
+
+export const ConfirmarPedidoButton = styled.button`
+  border: none;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 6px;
+  background-color: ${props => props.theme.produto['yellow']};
+  color: ${props => props.theme.base['white']};
 `
