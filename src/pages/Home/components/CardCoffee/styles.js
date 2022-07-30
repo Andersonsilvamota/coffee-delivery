@@ -66,6 +66,21 @@ export const CardCoffee = styled.div`
     height: 2.375rem;
     margin-top: 33px;
 
+    .price {
+      display: flex;
+      flex-direction: row;
+      gap: 4px;
+    }
+    small {
+      color: ${props => props.theme.base['base-text']};
+    }
+    strong {
+      color: ${props => props.theme.base['base-text']};
+      font-size: 1.5rem;
+      font-family: 'Baloo 2';
+      font-weight: 800;
+    }
+
     .quantity {
       display: flex;
       flex-direction: row;

@@ -19,7 +19,11 @@ export function CardCoffee(){
               <h3>{coffe.name}</h3>
               <p>{coffe.description}</p>
               <footer>
-                R$<strong>{coffe.price}</strong>
+                <div className="price">
+                  <small>R$</small>
+                  <strong>{coffe.price.toFixed(2)}</strong>
+
+                </div>
                 <div className="quantity">
                   <div className="buttonMinus">
                     <Minus weight="bold"/>
