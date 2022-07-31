@@ -82,13 +82,25 @@ export const CardCoffee = styled.div`
     }
 
     .quantity {
+      width: 5.5rem;
       display: flex;
       flex-direction: row;
-      gap: 8px;
+      gap: 10px;
       background-color: ${props => props.theme.base['base-button']};
       padding: 8.5px 8px;
       border-radius: 6px;
 
+      input{
+        text-align: center;
+        width: 100%;
+        background: none;
+        color: ${props => props.theme.base['base-title']};
+        border: none;
+        
+        &:focus{
+          outline: none;
+        }
+      }
       svg {
         color: ${props => props.theme.produto['purple']};
       }

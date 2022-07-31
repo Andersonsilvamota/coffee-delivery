@@ -28,7 +28,7 @@ export function CardCoffee(){
                   <div className="buttonMinus">
                     <Minus weight="bold"/>
                   </div>
-                    0
+                    <input type="number" readOnly value={1} />
                   <div className="buttonPlus">
                     <Plus weight="bold"/>
                   </div>

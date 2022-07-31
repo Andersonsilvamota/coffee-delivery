@@ -84,9 +84,10 @@ export function Checkout(){
               </div>
               
             </div>
+            <p className='price'>R$ 9,90</p>
           </Styles.ItemCart>
-            <hr color='#E6E5E5' width = "100%" size="2" />
-          
+          <hr color='#E6E5E5' width = "100%" size="2" />
+
           <Styles.ItemCart>
             <img src={coffes} />
             <div>
@@ -109,6 +110,7 @@ export function Checkout(){
               </div>
               
             </div>
+            <p className='price'>R$ 9,90</p>
           </Styles.ItemCart>
           <hr color='#E6E5E5' width = "100%" size="2" />
           <Styles.TotalCart>
@@ -122,7 +124,7 @@ export function Checkout(){
             </div>
             <div className='total'>
               <span>TOTAL</span>
-              <small>R$ 20.70</small>
+              <small className='totalPrice'>R$ 20.70</small>
             </div>
 
           </Styles.TotalCart>

@@ -104,27 +104,35 @@ export const OrderCart = styled.div`
   }
 `
 export const CartProduct = styled.div`
-
   background-color: ${props => props.theme.base['base-card']};
-  padding: 2.5rem;
+  padding: 1rem 2.5rem 2.5rem 2.5rem;
   border-radius: 6px 44px;
-  
 `
 export const ItemCart = styled.div`
+  height: 5rem;
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  padding-bottom: 3rem;
-  padding-top: 2rem;
+  margin: 2rem 0 2rem 0;
+  padding: 8px, 4px, 8px, 4px
+;
   
   .titleCoffe {
-    padding-bottom: 0.5rem;
-    color: ${props => props.theme.base['base-subtitle']};
+    //roboto- texto regular m
     font-size: 1rem;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
     line-height: 130%;
+    font-weight: normal;
+    color: ${props => props.theme.base['base-subtitle']};
+    padding-bottom: 0.5rem;
+    font-family: 'Roboto';
+    line-height: 130%;
+  }
+  .price {
+    //roboto- texto regular m
+    font-size: 1rem;
+    line-height: 130%;
+    font-weight: bold;
+    color: ${props => props.theme.base['base-text']};
   }
 
   img{
@@ -205,16 +213,29 @@ export const ButtonPay = styled.button`
 `
 
 export const TotalCart = styled.div`
+  margin-top: 2rem;
+  font-family: 'Roboto';
 
   .totalItens, .entrega, .total{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 12px;
+    font-size: 14px;
+    color: ${props => props.theme.base['base-text']};
+    small {
+      font-size: 1rem;
+    }
   }
 
   .total{
     font-weight: bold;
+    color: ${props => props.theme.base['base-subtitle']};
+    font-size: 20px;
+
+    .totalPrice{
+      font-size: 20px;
+    }
   }
 `
 
@@ -222,6 +243,7 @@ export const ConfirmarPedidoButton = styled.button`
   border: none;
   padding: 1rem;
   width: 100%;
+  margin-top: .75rem;
   border-radius: 6px;
   background-color: ${props => props.theme.produto['yellow']};
   color: ${props => props.theme.base['white']};
