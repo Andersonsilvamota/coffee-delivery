@@ -19,13 +19,11 @@ export function CardCoffee({coffee}){
 
   function handlAddCart(){
     const coffeeToAdd = {
-      ...coffees,
+      ...coffee,
       quantity,
     }
     addCoffeeToCart(coffeeToAdd)
   }
-
-  
 
   return(
     <Styles.ContentCoffe>
@@ -57,7 +55,6 @@ export function CardCoffee({coffee}){
             </div>
             <button className="cartButton" onClick={handlAddCart}>
               <ShoppingCart size={22} color="#fff" weight="fill" />
-
             </button>
           </footer>
         </div>
