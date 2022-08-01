@@ -56,6 +56,23 @@ export const Cart = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  position: relative;
   border-radius: 6px;
+
+  span {
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    top: calc(-1.25rem / 2);
+    right: calc(-1.25rem / 2);
+    background-color: ${props => props.theme.produto['yellow-dark']};
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 4px;
+  }
 `
