@@ -144,16 +144,25 @@ export const ItemCart = styled.div`
       gap: 6px;
       height: 2rem;
     }
+
   .quantity {
       display: flex;
       flex-direction: row;
+      width: 4.75rem;
       height: 2.5rem;
       align-items: center;
       justify-content: center;
       gap: 0.75rem;
       background-color: ${props => props.theme.base['base-button']};
-      padding: 8.5px;
+      padding: 8px;
       border-radius: 6px;
+
+      .buttonMinus, .buttonPlus {
+        border: none;
+        background: none;
+        display: flex;
+        padding: 0;
+      }
       svg {
         color: ${props => props.theme.produto['purple']};
       }
@@ -164,7 +173,7 @@ export const ItemCart = styled.div`
       }
   }
 
-  button {
+  .remove {
     border: none;
     background-color: ${props => props.theme.base['base-button']};
     height: 2.5rem;
@@ -174,18 +183,21 @@ export const ItemCart = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 8px;
+
+    &:hover{
+      background: ${props => props.theme.base['base-hover']};
+      cursor: pointer;
+    }
     
     p {
       color: ${props => props.theme.base['base-text']};
+      font-size: 12px;
     }
 
     svg {
       color: ${props => props.theme.produto['purple']};
     }
-    svg:hover {
-        color: ${props => props.theme.produto['purple-dark']};
-        cursor: pointer;
-      }
+    
   }
 `
 

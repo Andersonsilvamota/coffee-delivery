@@ -2,8 +2,12 @@ import * as Styles from './styles'
 import { CurrencyDollar, MapPinLine, CreditCard, Bank, Money, Minus, Plus, Trash } from 'phosphor-react'
 import coffes from '../../assets/Coffee.png'
 import { TitleSubtitleIcon } from '../../components/TitleSubtitleIcon'
+import { useContext } from 'react'
+import { CartContext } from '../../contexts/CartContext'
 
 export function Checkout(){
+  const { cartItems } = useContext(CartContext)
+
   return(
     <Styles.Conteiner>
       <Styles.ContainerCheckout>
@@ -33,13 +37,6 @@ export function Checkout(){
             subtitle="O pagamento é feito na entrega. Escolha a forma que deseja pagar"
             icon={<CurrencyDollar color={'#8047F8'} size={22} />}
           />
-          {/* <div className='title'>
-            <CurrencyDollar size={22} />
-            <div>
-              <label>Endereço de Entrega</label>
-              <p>Informe o endereço onde deseja receber o pedido</p>
-            </div>
-          </div> */}
           <Styles.Buttons>
             <Styles.ButtonPay>
               <CreditCard size={22}/>
@@ -60,58 +57,40 @@ export function Checkout(){
           
         <Styles.OrderCart>
         <h2>Cafés selecionados</h2>
-
         <Styles.CartProduct>
-          <Styles.ItemCart>
+          {cartItems.map(item => (
+            
+            <Styles.ItemCart key={item.id}>
+            <>
             <img src={coffes} />
             <div>
-              <p className='titleCoffe'>Expresso Tradicional</p> 
+              <p className='titleCoffe'>{item.name}</p> 
               <div className='buttons'>
                 <div className="quantity">
-                  <div className="buttonMinus">
-                    <Minus weight="bold"/>
-                  </div>
-                    0
-                  <div className="buttonPlus">
-                    <Plus weight="bold"/>
-                  </div>
+                  <button className="buttonMinus">
+                    <Minus size={14} weight="bold"/>
+                  </button>
+                    {item.quantity}
+                  <button className="buttonPlus">
+                    <Plus size={14} weight="bold"/>
+                  </button>
                 
                 </div>
-                <button>
-                  <Trash size={20}/>
+                <button className='remove'>
+                  <Trash size={16} weight="bold"/>
                   <p>REMOVER</p>
                 </button>  
               </div>
               
             </div>
-            <p className='price'>R$ 9,90</p>
+            <p className='price'>R$ {item.price}</p>
+            </>
           </Styles.ItemCart>
+          ))}
           <hr color='#E6E5E5' width = "100%" size="2" />
+        
 
-          <Styles.ItemCart>
-            <img src={coffes} />
-            <div>
-              <p className='titleCoffe'>Expresso Tradicional</p> 
-              <div className='buttons'>
-                <div className="quantity">
-                  <div className="buttonMinus">
-                    <Minus weight="bold"/>
-                  </div>
-                    0
-                  <div className="buttonPlus">
-                    <Plus weight="bold"/>
-                  </div>
-                
-                </div>
-                <button>
-                  <Trash size={20}/>
-                  <p>REMOVER</p>
-                </button>  
-              </div>
-              
-            </div>
-            <p className='price'>R$ 9,90</p>
-          </Styles.ItemCart>
+          
           <hr color='#E6E5E5' width = "100%" size="2" />
           <Styles.TotalCart>
             <div className='totalItens'>
