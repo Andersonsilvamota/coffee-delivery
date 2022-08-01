@@ -37,7 +37,11 @@ export function Home(){
       </Styles.ConteinerBanner>
 
         <h2>Nossos cafés</h2>
-        <CardCoffee />
+        <Styles.ContentCoffe>
+        {coffees.map(coffee => (
+            <CardCoffee key={coffee.id} coffee={coffee}/>
+        ))}
+        </Styles.ContentCoffe>
     </Styles.ConteinerHome>
   )
 }

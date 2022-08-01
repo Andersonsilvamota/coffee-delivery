@@ -95,5 +95,12 @@ export const ContentRight = styled.div`
   }
 `
 
+export const ContentCoffe = styled.div`
+  //margin-top: 4rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 1.6rem;
+  row-gap: 2.5rem;
 
-//cards cafe
+`

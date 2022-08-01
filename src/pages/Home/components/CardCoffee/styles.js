@@ -3,10 +3,10 @@ import styled from "styled-components"
 export const ContentCoffe = styled.div`
   margin-top: 4rem;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /*display: grid;
+  //grid-template-columns: repeat(4, 1fr);
   column-gap: 1.6rem;
-  row-gap: 2.5rem;
+  row-gap: 2.5rem; */
 
 `
 
@@ -17,10 +17,12 @@ export const CardCoffee = styled.div`
   border-radius: 6px 36px; 
   padding: 0 1.25rem;
 
+
   div {
     display: flex;
     flex-direction: column;
     align-items: center;
+
   }
 
   img {
@@ -90,6 +92,12 @@ export const CardCoffee = styled.div`
       padding: 8.5px 8px;
       border-radius: 6px;
 
+      .buttonMinus, .buttonPlus {
+        border: none;
+        background: none;
+        display: flex;
+      }
+
       input{
         text-align: center;
         width: 100%;
@@ -119,6 +127,7 @@ export const CardCoffee = styled.div`
     width: 36px;
     height: 36px;
     padding: 8px;
+    border: none;
     background-color: ${props => props.theme.produto['purple-dark']};
     
     &:hover {
