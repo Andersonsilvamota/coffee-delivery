@@ -2,11 +2,15 @@ import * as Styles from './styles'
 import { CurrencyDollar, MapPinLine, CreditCard, Bank, Money, Minus, Plus, Trash } from 'phosphor-react'
 import coffes from '../../assets/Coffee.png'
 import { TitleSubtitleIcon } from '../../components/TitleSubtitleIcon'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 
 export function Checkout(){
-  const { cartItems } = useContext(CartContext)
+  const { cartItems, changeQuantity } = useContext(CartContext)
+  const [quantity, setQuantity] = useState(1)
+  function handleChangeQuantity(item, name){
+    changeQuantity(item, name)
+  }
 
   return(
     <Styles.Conteiner>
@@ -62,16 +66,16 @@ export function Checkout(){
             
             <Styles.ItemCart key={item.id}>
             <>
-            <img src={coffes} />
+            <img src={`/coffes/${item.photo}`} />
             <div>
               <p className='titleCoffe'>{item.name}</p> 
               <div className='buttons'>
                 <div className="quantity">
-                  <button className="buttonMinus">
-                    <Minus size={14} weight="bold"/>
+                  <button className="buttonMinus" disabled={item.quantity <= 1} onClick={() => handleChangeQuantity(item, 'decrement')}>
+                    <Minus size={14} weight="bold"  />
                   </button>
                     {item.quantity}
-                  <button className="buttonPlus">
+                  <button className="buttonPlus" onClick={() => handleChangeQuantity(item, 'increment')}>
                     <Plus size={14} weight="bold"/>
                   </button>
                 
@@ -83,15 +87,12 @@ export function Checkout(){
               </div>
               
             </div>
-            <p className='price'>R$ {item.price}</p>
+            <p className='price'>R$ {item.price.toFixed(2)}</p>
             </>
           </Styles.ItemCart>
           ))}
           <hr color='#E6E5E5' width = "100%" size="2" />
         
-
-          
-          <hr color='#E6E5E5' width = "100%" size="2" />
           <Styles.TotalCart>
             <div className='totalItens'>
               <span>Total de itens</span>

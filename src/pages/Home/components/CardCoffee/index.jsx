@@ -18,6 +18,7 @@ export function CardCoffee({coffee}){
   }
 
   function handlAddCart(){
+    console.log(coffee)
     const coffeeToAdd = {
       ...coffee,
       quantity,
