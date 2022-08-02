@@ -38,12 +38,28 @@ export function CartContextProvider( {children} ) {
     } else {
       copyCoffeesCart[coffeeAlreadyExistsInCart].quantity = copyCoffeesCart[coffeeAlreadyExistsInCart].quantity + coffee.quantity
     }
-
     setCartItems(copyCoffeesCart)
   }
 
+  function removeCoffeeToCart(idCoffe){
+    const newCartItems = cartItems.filter(item => item.id !== idCoffe)
+    setCartItems(newCartItems)
+  }
+
   return (
-    <CartContext.Provider value={{cartItems, quantityInCart, deliveryValue, valueItems, valueFinal, addCoffeeToCart, changeQuantity}}>
+    <CartContext.Provider 
+      value={
+        {
+          cartItems, 
+          quantityInCart, 
+          deliveryValue, 
+          valueItems, 
+          valueFinal, 
+          addCoffeeToCart,
+          removeCoffeeToCart, 
+          changeQuantity
+        }
+      }>
       {children}
     </CartContext.Provider>
   )

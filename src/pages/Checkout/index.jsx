@@ -6,11 +6,15 @@ import { useContext, useState } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 
 export function Checkout(){
-  const { cartItems, valueFinal, valueItems, deliveryValue, changeQuantity } = useContext(CartContext)
+  const { cartItems, valueFinal, valueItems, deliveryValue, changeQuantity, removeCoffeeToCart } = useContext(CartContext)
   const [quantity, setQuantity] = useState(1)
 
   function handleChangeQuantity(item, name){
     changeQuantity(item, name)
+  }
+
+  function handleDeleteCoffeToCart(id){
+    removeCoffeeToCart(id)
   }
 
   return(
@@ -82,7 +86,7 @@ export function Checkout(){
                   </button>
                 
                 </div>
-                <button className='remove'>
+                <button className='remove' onClick={() => handleDeleteCoffeToCart(item.id)}>
                   <Trash size={16} weight="bold"/>
                   <p>REMOVER</p>
                 </button>  
