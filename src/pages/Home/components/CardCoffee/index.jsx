@@ -6,7 +6,6 @@ import { CartContext } from "../../../../contexts/CartContext";
 
 export function CardCoffee({coffee}){
   const [quantity, setQuantity] = useState(1)
-  
   const {cartItems = [], addCoffeeToCart} = useContext(CartContext)
 
   function handleIncrement() {

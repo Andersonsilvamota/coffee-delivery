@@ -6,8 +6,9 @@ import { useContext, useState } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 
 export function Checkout(){
-  const { cartItems, changeQuantity } = useContext(CartContext)
+  const { cartItems, valueFinal, valueItems, deliveryValue, changeQuantity } = useContext(CartContext)
   const [quantity, setQuantity] = useState(1)
+
   function handleChangeQuantity(item, name){
     changeQuantity(item, name)
   }
@@ -63,9 +64,10 @@ export function Checkout(){
         <h2>Cafés selecionados</h2>
         <Styles.CartProduct>
           {cartItems.map(item => (
-            
+          
             <Styles.ItemCart key={item.id}>
             <>
+            {console.log(item)}
             <img src={`/coffes/${item.photo}`} />
             <div>
               <p className='titleCoffe'>{item.name}</p> 
@@ -87,7 +89,7 @@ export function Checkout(){
               </div>
               
             </div>
-            <p className='price'>R$ {item.price.toFixed(2)}</p>
+            <p className='price'>R$ {(item.price * item.quantity).toFixed(2)}</p>
             </>
           </Styles.ItemCart>
           ))}
@@ -96,15 +98,15 @@ export function Checkout(){
           <Styles.TotalCart>
             <div className='totalItens'>
               <span>Total de itens</span>
-              <small>R$ 20.70</small>
+              <small>R$ {valueItems.toFixed(2)}</small>
             </div>
             <div className='entrega'>
               <span>Entrega</span>
-              <small>R$ 20.70</small>
+              <small>R$ {deliveryValue.toFixed(2)}</small>
             </div>
             <div className='total'>
               <span>TOTAL</span>
-              <small className='totalPrice'>R$ 20.70</small>
+              <small className='totalPrice'>R$ {valueFinal.toFixed(2)}</small>
             </div>
 
           </Styles.TotalCart>
