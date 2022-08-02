@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { CardCoffee } from "../pages/Home/components/CardCoffee";
 
 export const CartContext = createContext({});
 
@@ -10,9 +9,7 @@ export function CartContextProvider( {children} ) {
   let deliveryValue = 3.5
 
   let valueItems = cartItems.reduce((total, item) => total += (item.quantity * item.price), 0)
-  // const cartItemsTotal = cartItems.reduce((total, cartItem) => {
-  //   return total + cartItem.price * cartItem.quantity
-  // }, 0)
+  
   let valueFinal = deliveryValue + valueItems
   console.log(valueFinal)
   function changeQuantity(coffee, name){
