@@ -12,7 +12,7 @@ export const Conteiner = styled.div`
   }
 `
 
-export const ContainerCheckout = styled.div`
+export const ContainerCheckout = styled.form`
   width: 100%;
   height: 34rem;
   max-width: 120rem;
@@ -206,21 +206,46 @@ export const Buttons = styled.div`
   flex-direction: row;
   justify-content: center;
   gap: 1rem;
+
 `
 
 export const ButtonPay = styled.button`
   border: none;
   width: 12rem;
   height: 3.125rem;
-  padding: 12px 10px;
+  padding: 12px 12px;
   display: flex;
   align-items: center;
   border-radius: 6px;
   justify-content: space-between;
   background-color:${props => props.theme.base['base-button']} ;
+
   svg {
     color: ${props => props.theme.produto['purple']};
   }
+
+  .icon {
+    display: flex;
+  }
+
+  small {
+    color:${props => props.theme.base['base-text']} ;
+    font-size: 12px;
+  }
+  background: ${({ isActive, activeColor }) =>
+    isActive ? "#EBE5F9" : "#E6E5E5"};
+  border: 1px solid ${({ isActive, activeColor }) =>
+    isActive ? "#8047F8" : "#E6E5E5"};
+  display: flex;
+  //gap: 5rem;
+  //align-items: flex-end;
+  justify-content: start;
+  gap: 8px;
+  transition: border-color 0.2s;
+  &:hover {
+    background:  ${props => props.theme.base['base-hover']};
+  }
+
 
 `
 
@@ -259,4 +284,8 @@ export const ConfirmarPedidoButton = styled.button`
   border-radius: 6px;
   background-color: ${props => props.theme.produto['yellow']};
   color: ${props => props.theme.base['white']};
+
+  &:hover {
+    cursor: pointer;
+  }
 `

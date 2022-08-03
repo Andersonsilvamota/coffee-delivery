@@ -4,10 +4,16 @@ import coffes from '../../assets/Coffee.png'
 import { TitleSubtitleIcon } from '../../components/TitleSubtitleIcon'
 import { useContext, useState } from 'react'
 import { CartContext } from '../../contexts/CartContext'
+import { useForm } from 'react-hook-form'
 
 export function Checkout(){
+  const {register, handleSubmit} = useForm()
   const { cartItems, valueFinal, valueItems, deliveryValue, changeQuantity, removeCoffeeToCart } = useContext(CartContext)
   const [quantity, setQuantity] = useState(1)
+  const [data, setData] = useState("");
+  const [method, setMethod] = useState('') // pode começar vazio, pra não setar nenhum
+
+  console.log(data)
 
   function handleChangeQuantity(item, name){
     changeQuantity(item, name)
@@ -19,7 +25,7 @@ export function Checkout(){
 
   return(
     <Styles.Conteiner>
-      <Styles.ContainerCheckout>
+      <Styles.ContainerCheckout onSubmit={handleSubmit(data => setData(JSON.stringify(data)))}>
         <Styles.ContentCompletOrder>
         <h2>Complete seu pedido</h2>
 
@@ -31,13 +37,13 @@ export function Checkout(){
             />
           
           <div className='form'>
-            <input className='cep' placeholder='CEP'/>
-            <input className='street' placeholder='Rua'/>
-            <input placeholder='Número'/>
-            <input className='complement' placeholder='Complemento'/>
-            <input placeholder='Bairro'/>
-            <input placeholder='Cidade'/>
-            <input placeholder='UF'/>
+            <input {...register("cep")} className='cep' placeholder='CEP'/>
+            <input {...register("rua")} className='street' placeholder='Rua'/>
+            <input {...register("numero")} placeholder='Número'/>
+            <input {...register("complemento")} className='complement' placeholder='Complemento'/>
+            <input {...register("bairro")} placeholder='Bairro'/>
+            <input {...register("cidade")} placeholder='Cidade'/>
+            <input {...register("uf")} placeholder='UF'/>
           </div>
         </Styles.ContentAddress>
         <Styles.ContentAddress>
@@ -47,17 +53,37 @@ export function Checkout(){
             icon={<CurrencyDollar color={'#8047F8'} size={22} />}
           />
           <Styles.Buttons>
-            <Styles.ButtonPay>
-              <CreditCard size={22}/>
-              <small>CARTÃO DE CRÉDITO</small>
+            <Styles.ButtonPay 
+              type="button"
+              onClick={() => setMethod("credit")}
+              isActive={method === 'credit'}
+              activeColor="#f0f"
+            >
+              {/* <input id="credito" type="radio" /> */}
+             
+                <div className='icon'><CreditCard size={18}/></div>
+                <small>CARTÃO DE CRÉDITO</small>
+
             </Styles.ButtonPay>
-            <Styles.ButtonPay>
-              <Bank size={22}/>
-              <small>CARTÃO DE CRÉDITO</small>
+            <Styles.ButtonPay 
+              type="button"
+              onClick={() => setMethod("debit")}
+              isActive={method === 'debit'}
+              activeColor="#f0f">
+              {/* <input id="debito" type="radio" /> */}
+                <div className='icon'> <Bank size={18}/></div>
+                <small>CARTÃO DE DÉBITO</small>
+
+              
             </Styles.ButtonPay>
-            <Styles.ButtonPay>
-              <Money size={22}/>
-              <small>CARTÃO DE CRÉDITO</small>
+            <Styles.ButtonPay 
+              type="button"
+              onClick={() => setMethod("money")}
+              isActive={method === 'money'}
+              activeColor="#f0f">
+              
+                <div className='icon'><Money size={18}/></div>
+                <small>DINHEIRO</small>
             </Styles.ButtonPay>
           </Styles.Buttons>
         </Styles.ContentAddress>
@@ -114,7 +140,7 @@ export function Checkout(){
             </div>
 
           </Styles.TotalCart>
-          <Styles.ConfirmarPedidoButton>CONFIRMAR PEDIDO</Styles.ConfirmarPedidoButton>
+          <Styles.ConfirmarPedidoButton type="submit">CONFIRMAR PEDIDO</Styles.ConfirmarPedidoButton>
         </Styles.CartProduct>
         </Styles.OrderCart>
       </Styles.ContainerCheckout>
