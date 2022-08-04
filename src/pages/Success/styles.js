@@ -25,10 +25,13 @@ export const ContentLeft = styled.div`
 `
 export const InfoDelivery = styled.div`
   margin-top: 2rem;
-  border-radius: 6px 36px;
-  border: 2px solid;
-  border-image: linear-gradient(90deg, #DBAC2C , #8047F8);
-  border-image-slice: 1;
+  border-radius: 6px 36px 6px 36px;
+  //border: 1px solid;
+  min-width: 32rem;
+  position: relative;
+  background-color: ${props => props.theme.base['background']};
+  //border-image: linear-gradient(90deg, #DBAC2C , #8047F8);
+  //border-image-slice: 1;
   
   
   //border: 1px solid;
@@ -38,7 +41,14 @@ export const InfoDelivery = styled.div`
  
   padding: 2rem 0 2rem 3rem;
 
- 
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    border-radius: 7px 37px 7px 37px;
+    background: linear-gradient(102.89deg, #DBAC2C 2.61%, #8047F8 98.76%);
+  }
 
   .conteiner-info {
     display: flex;

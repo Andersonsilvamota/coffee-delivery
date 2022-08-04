@@ -59,67 +59,58 @@ export function Checkout(){
               isActive={method === 'credit'}
               activeColor="#f0f"
             >
-              {/* <input id="credito" type="radio" /> */}
-             
-                <div className='icon'><CreditCard size={18}/></div>
-                <small>CARTÃO DE CRÉDITO</small>
-
+              <div className='icon'><CreditCard size={18}/></div>
+              <small>CARTÃO DE CRÉDITO</small>
             </Styles.ButtonPay>
             <Styles.ButtonPay 
               type="button"
               onClick={() => setMethod("debit")}
               isActive={method === 'debit'}
-              activeColor="#f0f">
-              {/* <input id="debito" type="radio" /> */}
-                <div className='icon'> <Bank size={18}/></div>
-                <small>CARTÃO DE DÉBITO</small>
-
-              
+              activeColor="#f0f"
+            >
+              <div className='icon'><Bank size={18}/></div>
+              <small>CARTÃO DE DÉBITO</small>
             </Styles.ButtonPay>
             <Styles.ButtonPay 
               type="button"
               onClick={() => setMethod("money")}
               isActive={method === 'money'}
-              activeColor="#f0f">
-              
-                <div className='icon'><Money size={18}/></div>
-                <small>DINHEIRO</small>
+              activeColor="#f0f"
+            >
+              <div className='icon'><Money size={18}/></div>
+              <small>DINHEIRO</small>
             </Styles.ButtonPay>
           </Styles.Buttons>
         </Styles.ContentAddress>
         </Styles.ContentCompletOrder>
-        
-          
         <Styles.OrderCart>
         <h2>Cafés selecionados</h2>
         <Styles.CartProduct>
           {cartItems.map(item => (
-          
             <Styles.ItemCart key={item.id}>
             <>
-            {console.log(item)}
-            <img src={`/coffes/${item.photo}`} />
-            <div>
-              <p className='titleCoffe'>{item.name}</p> 
-              <div className='buttons'>
-                <div className="quantity">
-                  <button className="buttonMinus" disabled={item.quantity <= 1} onClick={() => handleChangeQuantity(item, 'decrement')}>
-                    <Minus size={14} weight="bold"  />
-                  </button>
-                    {item.quantity}
-                  <button className="buttonPlus" onClick={() => handleChangeQuantity(item, 'increment')}>
-                    <Plus size={14} weight="bold"/>
-                  </button>
-                
+              <img src={`/coffes/${item.photo}`} />
+              <div>
+                <p className='titleCoffe'>{item.name}</p> 
+                <div className='buttons'>
+                  <div className="quantity">
+                    <button className="buttonMinus" disabled={item.quantity <= 1} onClick={() => handleChangeQuantity(item, 'decrement')}>
+                      <Minus size={14} weight="bold"  />
+                    </button>
+                      {item.quantity}
+                    <button className="buttonPlus" onClick={() => handleChangeQuantity(item, 'increment')}>
+                      <Plus size={14} weight="bold"/>
+                    </button>
+                  
+                  </div>
+                  <button className='remove' onClick={() => handleDeleteCoffeToCart(item.id)}>
+                    <Trash size={16} weight="bold"/>
+                    <p>REMOVER</p>
+                  </button>  
                 </div>
-                <button className='remove' onClick={() => handleDeleteCoffeToCart(item.id)}>
-                  <Trash size={16} weight="bold"/>
-                  <p>REMOVER</p>
-                </button>  
+                
               </div>
-              
-            </div>
-            <p className='price'>R$ {(item.price * item.quantity).toFixed(2)}</p>
+              <p className='price'>R$ {(item.price * item.quantity).toFixed(2)}</p>
             </>
           </Styles.ItemCart>
           ))}
