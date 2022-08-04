@@ -26,19 +26,9 @@ export const ContentLeft = styled.div`
 export const InfoDelivery = styled.div`
   margin-top: 2rem;
   border-radius: 6px 36px 6px 36px;
-  //border: 1px solid;
   min-width: 32rem;
   position: relative;
   background-color: ${props => props.theme.base['background']};
-  //border-image: linear-gradient(90deg, #DBAC2C , #8047F8);
-  //border-image-slice: 1;
-  
-  
-  //border: 1px solid;
-  //border-color: linear-gradient(to top, #3acfd5 0%, #3a4ed5 100%);
-  //-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat;
-
- 
   padding: 2rem 0 2rem 3rem;
 
   &::before {
@@ -67,7 +57,6 @@ export const InfoDelivery = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    //gap: 1rem;
     border-radius: 50%;
     color: ${props => props.theme.base['white']};
   }
