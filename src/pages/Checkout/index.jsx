@@ -4,16 +4,19 @@ import coffes from '../../assets/Coffee.png'
 import { TitleSubtitleIcon } from '../../components/TitleSubtitleIcon'
 import { useContext, useState } from 'react'
 import { CartContext } from '../../contexts/CartContext'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 
 export function Checkout(){
-  const {register, handleSubmit} = useForm()
+  const {register, handleSubmit, control, setValue} = useForm()
   const { cartItems, valueFinal, valueItems, deliveryValue, changeQuantity, removeCoffeeToCart } = useContext(CartContext)
   const [quantity, setQuantity] = useState(1)
   const [data, setData] = useState("");
   const [method, setMethod] = useState('') // pode começar vazio, pra não setar nenhum
 
+  
+
   console.log(data)
+  console.log(method)
 
   function handleChangeQuantity(item, name){
     changeQuantity(item, name)
@@ -52,30 +55,44 @@ export function Checkout(){
             subtitle="O pagamento é feito na entrega. Escolha a forma que deseja pagar"
             icon={<CurrencyDollar color={'#8047F8'} size={22} />}
           />
-          <Styles.Buttons>
+          <Styles.Buttons >
             <Styles.ButtonPay 
               type="button"
-              onClick={() => setMethod("credit")}
+              onClick={() => {
+                setValue("method", "credit")
+                setMethod("credit")}
+              }
               isActive={method === 'credit'}
               activeColor="#f0f"
+              //value={value}
             >
               <div className='icon'><CreditCard size={18}/></div>
               <small>CARTÃO DE CRÉDITO</small>
             </Styles.ButtonPay>
             <Styles.ButtonPay 
               type="button"
-              onClick={() => setMethod("debit")}
+              onClick={() => {
+                setValue("method", "debit")
+                setMethod("debit")}
+              }
               isActive={method === 'debit'}
               activeColor="#f0f"
+              //value={method}
+              //{...register("methodPayment", {required: true})}
             >
               <div className='icon'><Bank size={18}/></div>
               <small>CARTÃO DE DÉBITO</small>
             </Styles.ButtonPay>
             <Styles.ButtonPay 
               type="button"
-              onClick={() => setMethod("money")}
+              onClick={() => {
+                setValue("method", "money")
+                setMethod("money")}
+              }
               isActive={method === 'money'}
               activeColor="#f0f"
+              //value={method}
+              //{...register("methodPayment", {required: true})}
             >
               <div className='icon'><Money size={18}/></div>
               <small>DINHEIRO</small>
