@@ -5,9 +5,23 @@ import { TitleSubtitleIcon } from '../../components/TitleSubtitleIcon'
 import { useContext, useState } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 import { Controller, useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+
+const schema = yup.object({
+  cep: yup.number().required(),
+  street: yup.string().required(),
+  number: yup.number().integer().required(),
+  complement: yup.string(),
+  district: yup.string().required(),
+  city: yup.string().required(),
+  state: yup.string().required(),
+}).required()
 
 export function Checkout(){
-  const {register, handleSubmit, control, setValue} = useForm()
+  const {register, handleSubmit, setValue, formState:{ errors }} = useForm({
+    resolver: yupResolver(schema)
+  })
   const { cartItems, valueFinal, valueItems, deliveryValue, changeQuantity, removeCoffeeToCart } = useContext(CartContext)
   const [quantity, setQuantity] = useState(1)
   const [data, setData] = useState("");
