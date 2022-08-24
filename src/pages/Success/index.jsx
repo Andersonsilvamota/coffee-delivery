@@ -1,8 +1,14 @@
 import * as Styles from './styles'
 import imageDelivey from '../../assets/delivery.svg'
 import {MapPin, Timer, CurrencyDollar} from 'phosphor-react'
+import {useLocation} from 'react-router-dom'
 
 export function Success(){
+
+  const {state} = useLocation();
+
+  console.log(state)
+
   return (
     <Styles.Conteiner>
       <Styles.ContentLeft>
@@ -12,8 +18,8 @@ export function Success(){
         <div className='conteiner-info '>
           <div className='icon icon-map'><MapPin size={16} weight="fill" /></div>
           <span>
-            <p>Entrega em <strong>Rua João Daniel Martinelli, 102</strong></p>
-            <p>Farrapos - Porto Alegre, RS</p>
+            <p>Entrega em <strong>{state.street}, {state.number}</strong></p>
+            <p>{state.district} - {state.city}, {state.state}</p>
           </span>
         </div>
         <div className='conteiner-info '>
@@ -27,7 +33,9 @@ export function Success(){
           <div className='icon icon-dolar'><CurrencyDollar size={16} weight="fill" /></div>
           <span>
             <p>Pagamento na entrega</p>
-            <p><strong>Cartão de Crédito</strong></p>
+            <p><strong>{state.method === 'credit' && 'Cartão de Crédito'}</strong></p>
+            <p><strong>{state.method === 'debit' && 'Cartão de Débito'}</strong></p>
+            <p><strong>{state.method === 'money' && 'Dinheiro'}</strong></p>
           </span>
         </div>
           
