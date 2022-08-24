@@ -9,14 +9,15 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
 const schema = yup.object({
-  cep: yup.number().required(),
-  street: yup.string().required(),
-  number: yup.number().integer().required(),
+  cep: yup.number().min(8, 'Cep inválido').required(),
+  street: yup.string().min(1, 'Informe a Rua').required(),
+  number: yup.number().min(1, 'Informe o número').integer().required(),
   complement: yup.string(),
-  district: yup.string().required(),
-  city: yup.string().required(),
-  state: yup.string().required(),
-}).required()
+  district: yup.string().min(3, 'Informe o Bairro').required(),
+  city: yup.string().min(3, 'Informe a Cidade').required(),
+  state: yup.string().min(2, 'Informe o Estado').required(),
+  method: yup.string().min(1, 'Informe o Método de pagamento').required(), 
+}).required() 
 
 export function Checkout(){
   const {register, handleSubmit, setValue, formState:{ errors }} = useForm({
@@ -29,8 +30,10 @@ export function Checkout(){
 
   
 
-  console.log(data)
-  console.log(method)
+  //console.log(data)
+  //console.log(errors.cep?.message)
+
+  const erro = errors.street?.message
 
   function handleChangeQuantity(item, name){
     changeQuantity(item, name)
@@ -40,9 +43,14 @@ export function Checkout(){
     removeCoffeeToCart(id)
   }
 
+  function handleSave(data){
+    console.log(data)
+    data => setData(JSON.stringify(data))
+  }
+
   return(
     <Styles.Conteiner>
-      <Styles.ContainerCheckout onSubmit={handleSubmit(data => setData(JSON.stringify(data)))}>
+      <Styles.ContainerCheckout onSubmit={handleSubmit(handleSave)}>
         <Styles.ContentCompletOrder>
         <h2>Complete seu pedido</h2>
 
@@ -54,13 +62,19 @@ export function Checkout(){
             />
           
           <div className='form'>
-            <input {...register("cep")} className='cep' placeholder='CEP'/>
-            <input {...register("rua")} className='street' placeholder='Rua'/>
-            <input {...register("numero")} placeholder='Número'/>
-            <input {...register("complemento")} className='complement' placeholder='Complemento'/>
-            <input {...register("bairro")} placeholder='Bairro'/>
-            <input {...register("cidade")} placeholder='Cidade'/>
-            <input {...register("uf")} placeholder='UF'/>
+            <input {...register("cep")} className='cep' type="number" placeholder='CEP*'/>
+            {errors.cep && <span className='erro-cep'>Informe o cep</span>}
+            <input {...register("street")} className='street' placeholder='Rua*'/>
+            {errors.street && <span className='erro-street'>Informe a rua</span>}            
+            <input {...register("number")} placeholder='Número*'/>
+            {errors.number && <span className='erro'>Informe o número</span>}
+            <input {...register("complement")} className='complement' placeholder='Complemento'/>
+            <input {...register("district")} placeholder='Bairro*'/>
+            {errors.district && <span className='erro'>Informe o bairro</span>}
+            <input {...register("city")} placeholder='Cidade*'/>
+            {errors.city && <span className='erro'>Informe a cidade</span>}
+            <input {...register("state")} placeholder='UF*'/>
+            {errors.state && <span className='erro'>Informe a UF</span>}
           </div>
         </Styles.ContentAddress>
         <Styles.ContentAddress>
@@ -111,7 +125,10 @@ export function Checkout(){
               <div className='icon'><Money size={18}/></div>
               <small>DINHEIRO</small>
             </Styles.ButtonPay>
+            
           </Styles.Buttons>
+          {errors.method && <span className='erro-metodo-pagamento'>Informe a forma de pagamento</span>}
+
         </Styles.ContentAddress>
         </Styles.ContentCompletOrder>
         <Styles.OrderCart>

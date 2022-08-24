@@ -41,7 +41,10 @@ export const ContentAddress = styled.div`
   padding: 2.5rem;
   border-radius: 6px;
   background-color: ${props => props.theme.base['base-card']};
-
+  .erro-metodo-pagamento {
+    color: red;
+    font-size: 0.75rem;
+  }
   .form {
     width: 100%;
     display: grid;
@@ -50,15 +53,36 @@ export const ContentAddress = styled.div`
     row-gap: 1rem;
     grid-auto-flow: dense;
 
+    .erro{
+      font-size: 0.75rem;
+      margin: 0;
+      color: red;
+      grid-column: span 3;
+      max-width: 12.5rem;
+  
+    }
     .cep {
       grid-column: span 3;
       max-width: 12.5rem;
+    }
+    
+    .erro-cep {
+      font-size: 0.75rem;
+      grid-column: span 3;
+      max-width: 12.5rem;
+      margin: 0;
+      color: red;
     }
 
     .street {
       grid-column: span 3;
     }
-
+    .erro-street {
+      font-size: 0.75rem;
+      grid-column: span 3;
+      margin: 0;
+      color: red;
+    }
     .complement {
       grid-column: span 2;
     }
@@ -207,6 +231,7 @@ export const Buttons = styled.div`
   justify-content: center;
   gap: 1rem;
 
+  
 `
 
 export const ButtonPay = styled.button`
