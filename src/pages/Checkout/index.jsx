@@ -7,6 +7,7 @@ import { CartContext } from '../../contexts/CartContext'
 import { Controller, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import { useNavigate } from 'react-router-dom'
 
 const schema = yup.object({
   cep: yup.number().min(8, 'Cep inválido').required(),
@@ -23,6 +24,9 @@ export function Checkout(){
   const {register, handleSubmit, setValue, formState:{ errors }} = useForm({
     resolver: yupResolver(schema)
   })
+
+  const navigate = useNavigate();
+
   const { cartItems, valueFinal, valueItems, deliveryValue, changeQuantity, removeCoffeeToCart } = useContext(CartContext)
   const [quantity, setQuantity] = useState(1)
   const [data, setData] = useState("");
@@ -45,7 +49,9 @@ export function Checkout(){
 
   function handleSave(data){
     console.log(data)
-    data => setData(JSON.stringify(data))
+    navigate("/success",{
+      state: data,
+    })
   }
 
   return(
