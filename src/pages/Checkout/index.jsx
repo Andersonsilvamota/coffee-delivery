@@ -133,7 +133,7 @@ export function Checkout(){
             </Styles.ButtonPay>
             
           </Styles.Buttons>
-          {errors.method && <span className='erro-metodo-pagamento'>Informe a forma de pagamento</span>}
+          {(errors.method && !method) && <span className='erro-metodo-pagamento'>Informe a forma de pagamento</span>}
 
         </Styles.ContentAddress>
         </Styles.ContentCompletOrder>
@@ -148,11 +148,11 @@ export function Checkout(){
                 <p className='titleCoffe'>{item.name}</p> 
                 <div className='buttons'>
                   <div className="quantity">
-                    <button className="buttonMinus" disabled={item.quantity <= 1} onClick={() => handleChangeQuantity(item, 'decrement')}>
+                    <button type='button' className="buttonMinus" disabled={item.quantity <= 1} onClick={() => handleChangeQuantity(item, 'decrement')}>
                       <Minus size={14} weight="bold"  />
                     </button>
                       {item.quantity}
-                    <button className="buttonPlus" onClick={() => handleChangeQuantity(item, 'increment')}>
+                    <button type='button' className="buttonPlus" onClick={() => handleChangeQuantity(item, 'increment')}>
                       <Plus size={14} weight="bold"/>
                     </button>
                   

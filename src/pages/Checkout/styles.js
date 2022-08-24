@@ -243,6 +243,7 @@ export const ButtonPay = styled.button`
   align-items: center;
   border-radius: 6px;
   justify-content: space-between;
+  cursor: pointer;
   background-color:${props => props.theme.base['base-button']} ;
 
   svg {
