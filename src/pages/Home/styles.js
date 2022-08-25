@@ -7,18 +7,19 @@ export const ConteinerHome = styled.div`
 export const ConteinerBanner = styled.div`
   width: 100%;
   height: 34rem;
-  max-width: 120rem;
+  max-width: 90rem;
   margin-right: auto;
   margin-left: auto;
   display: flex;
   justify-content: space-between;
+
 `
 
 export const ContentLeft = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
-  padding: 6rem 0;
+  padding: 3rem 0;
 
   h2 {
     font-size: 48px;
@@ -98,6 +99,7 @@ export const ContentRight = styled.div`
 export const ContentCoffe = styled.div`
   //margin-top: 4rem;
   width: 100%;
+  max-width: 90rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 1.6rem;

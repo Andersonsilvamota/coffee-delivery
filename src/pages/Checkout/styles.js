@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Conteiner = styled.div`
-  padding: 2rem 15rem;
+  padding: 0.75rem 15rem;
 
   h2 {
     font-family: 'Baloo 2';
@@ -15,16 +15,12 @@ export const Conteiner = styled.div`
 export const ContainerCheckout = styled.form`
   width: 100%;
   height: 34rem;
-  max-width: 120rem;
+  max-width: 90rem;
   margin-right: auto;
   margin-left: auto;
   display: flex;
-  gap: 3rem;
-  //flex-direction: column;
+  gap: 7rem;
   padding: 1rem 0;
-
-
-
 `
 
 export const ContentCompletOrder = styled.div`
