@@ -16,6 +16,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useNavigate } from 'react-router-dom'
+import { InfoCartEmpty } from './components/InfoCartEmpty'
 
 const schema = yup.object({
   cep: yup.number().min(8, 'Cep inválido').required(),
@@ -51,6 +52,8 @@ export function Checkout(){
   } = useContext(CartContext)
   const [method, setMethod] = useState('') // pode começar vazio, pra não setar nenhum
 
+  console.log(cartItems)
+
   function handleChangeQuantity(item, name){
     changeQuantity(item, name)
   }
@@ -70,7 +73,8 @@ export function Checkout(){
   }
 
   return(
-    <Styles.Conteiner>
+    cartItems.length > 0 ? (
+      <Styles.Conteiner>
       <Styles.ContainerCheckout onSubmit={handleSubmit(handleSave)}>
         <Styles.ContentCompletOrder>
         <h2>Complete seu pedido</h2>
@@ -248,5 +252,9 @@ export function Checkout(){
         </Styles.OrderCart>
       </Styles.ContainerCheckout>
     </Styles.Conteiner>
+    ) : <InfoCartEmpty /> 
+      
+    
+    
   )
 }
