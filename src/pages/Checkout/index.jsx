@@ -1,10 +1,18 @@
 import * as Styles from './styles'
-import { CurrencyDollar, MapPinLine, CreditCard, Bank, Money, Minus, Plus, Trash } from 'phosphor-react'
-import coffes from '../../assets/Coffee.png'
+import { 
+  CurrencyDollar,
+  MapPinLine, 
+  CreditCard, 
+  Bank, 
+  Money, 
+  Minus, 
+  Plus, 
+  Trash 
+} from 'phosphor-react'
 import { TitleSubtitleIcon } from '../../components/TitleSubtitleIcon'
 import { useContext, useState } from 'react'
 import { CartContext } from '../../contexts/CartContext'
-import { Controller, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useNavigate } from 'react-router-dom'
@@ -21,23 +29,27 @@ const schema = yup.object({
 }).required() 
 
 export function Checkout(){
-  const {register, handleSubmit, setValue, formState:{ errors, isSubmitting }} = useForm({
+  const {
+    register, 
+    handleSubmit, 
+    setValue, 
+    formState:{ errors, isSubmitting }
+  } = useForm({
     resolver: yupResolver(schema)
   })
 
   const navigate = useNavigate();
 
-  const { cartItems, valueFinal, valueItems, deliveryValue, changeQuantity, removeCoffeeToCart, resetCart } = useContext(CartContext)
-  const [quantity, setQuantity] = useState(1)
-  const [data, setData] = useState("");
+  const { 
+    cartItems, 
+    valueFinal, 
+    valueItems, 
+    deliveryValue, 
+    changeQuantity, 
+    removeCoffeeToCart, 
+    resetCart 
+  } = useContext(CartContext)
   const [method, setMethod] = useState('') // pode começar vazio, pra não setar nenhum
-
-  
-
-  //console.log(data)
-  //console.log(errors.cep?.message)
-
-  const erro = errors.street?.message
 
   function handleChangeQuantity(item, name){
     changeQuantity(item, name)
@@ -132,7 +144,6 @@ export function Checkout(){
               }
               isActive={method === 'credit'}
               activeColor="#f0f"
-              //value={value}
             >
               <div className='icon'><CreditCard size={18}/></div>
               <small>CARTÃO DE CRÉDITO</small>
@@ -145,8 +156,6 @@ export function Checkout(){
               }
               isActive={method === 'debit'}
               activeColor="#f0f"
-              //value={method}
-              //{...register("methodPayment", {required: true})}
             >
               <div className='icon'><Bank size={18}/></div>
               <small>CARTÃO DE DÉBITO</small>
@@ -159,8 +168,6 @@ export function Checkout(){
               }
               isActive={method === 'money'}
               activeColor="#f0f"
-              //value={method}
-              //{...register("methodPayment", {required: true})}
             >
               <div className='icon'><Money size={18}/></div>
               <small>DINHEIRO</small>
@@ -182,17 +189,29 @@ export function Checkout(){
                 <p className='titleCoffe'>{item.name}</p> 
                 <div className='buttons'>
                   <div className="quantity">
-                    <button type='button' className="buttonMinus" disabled={item.quantity <= 1} onClick={() => handleChangeQuantity(item, 'decrement')}>
-                      <Minus size={14} weight="bold"  />
+                    <button 
+                      type='button' 
+                      className="buttonMinus" 
+                      disabled={item.quantity <= 1} 
+                      onClick={() => handleChangeQuantity(item, 'decrement')}>
+                      <Minus size={14} weight="bold"  
+                    />
                     </button>
                       {item.quantity}
-                    <button type='button' className="buttonPlus" onClick={() => handleChangeQuantity(item, 'increment')}>
-                      <Plus size={14} weight="bold"/>
+                    <button 
+                      type='button' 
+                      className="buttonPlus" 
+                      onClick={() => handleChangeQuantity(item, 'increment')}>
+                      <Plus size={14} weight="bold"
+                    />
                     </button>
                   
                   </div>
-                  <button className='remove' onClick={() => handleDeleteCoffeToCart(item.id)}>
-                    <Trash size={16} weight="bold"/>
+                  <button 
+                    className='remove' 
+                    onClick={() => handleDeleteCoffeToCart(item.id)}>
+                    <Trash size={16} weight="bold"
+                  />
                     <p>REMOVER</p>
                   </button>  
                 </div>
@@ -219,7 +238,12 @@ export function Checkout(){
             </div>
 
           </Styles.TotalCart>
-          <Styles.ConfirmarPedidoButton disabled={isSubmitting} type="submit">CONFIRMAR PEDIDO</Styles.ConfirmarPedidoButton>
+          <Styles.ConfirmarPedidoButton 
+            disabled={isSubmitting} 
+            type="submit"
+          >
+            CONFIRMAR PEDIDO
+          </Styles.ConfirmarPedidoButton>
         </Styles.CartProduct>
         </Styles.OrderCart>
       </Styles.ContainerCheckout>
