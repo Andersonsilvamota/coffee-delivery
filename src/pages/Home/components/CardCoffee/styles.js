@@ -3,11 +3,6 @@ import styled from "styled-components"
 export const ContentCoffe = styled.div`
   margin-top: 4rem;
   width: 100%;
-  /*display: grid;
-  //grid-template-columns: repeat(4, 1fr);
-  column-gap: 1.6rem;
-  row-gap: 2.5rem; */
-
 `
 
 export const CardCoffee = styled.div`
@@ -17,29 +12,29 @@ export const CardCoffee = styled.div`
   border-radius: 6px 36px; 
   padding: 0 1.25rem;
 
-
   div {
     display: flex;
     flex-direction: column;
     align-items: center;
-
   }
 
   img {
     margin-top: -20px;
   }
+
   p {
     font-family: Roboto;
     font-style: Regular;
     font-size: 14px;
     line-height: 130%;
-
   }
+
   .tags {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
   }
+
   .tag {
     background-color: ${props => props.theme.produto['yellow-light']};
     color: ${props => props.theme.produto['yellow-dark']};
@@ -73,9 +68,11 @@ export const CardCoffee = styled.div`
       flex-direction: row;
       gap: 4px;
     }
+    
     small {
       color: ${props => props.theme.base['base-text']};
     }
+
     strong {
       color: ${props => props.theme.base['base-text']};
       font-size: 1.5rem;
@@ -109,6 +106,7 @@ export const CardCoffee = styled.div`
           outline: none;
         }
       }
+
       svg {
         color: ${props => props.theme.produto['purple']};
       }
@@ -119,6 +117,7 @@ export const CardCoffee = styled.div`
       }
     }
   }
+
   .cartButton {
     display: flex;
     align-items: center;
@@ -135,5 +134,4 @@ export const CardCoffee = styled.div`
       cursor: pointer;
     }
   }
- 
 `

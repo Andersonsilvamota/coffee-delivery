@@ -68,18 +68,18 @@ export function Checkout(){
             />
           
           <div className='form'>
-            <input {...register("cep")} className='cep' type="number" placeholder='CEP*'/>
+            <input {...register("cep")} autocomplete="off" className='cep' type="number" placeholder='CEP*'/>
             {errors.cep && <span className='erro-cep'>Informe o cep</span>}
-            <input {...register("street")} className='street' placeholder='Rua*'/>
+            <input {...register("street")} autocomplete="off" className='street' placeholder='Rua*'/>
             {errors.street && <span className='erro-street'>Informe a rua</span>}            
-            <input {...register("number")} placeholder='Número*'/>
+            <input {...register("number")} autocomplete="off" placeholder='Número*'/>
             {errors.number && <span className='erro'>Informe o número</span>}
-            <input {...register("complement")} className='complement' placeholder='Complemento'/>
-            <input {...register("district")} placeholder='Bairro*'/>
+            <input {...register("complement")} autocomplete="off" className='complement' placeholder='Complemento'/>
+            <input {...register("district")} autocomplete="off" placeholder='Bairro*'/>
             {errors.district && <span className='erro'>Informe o bairro</span>}
-            <input {...register("city")} placeholder='Cidade*'/>
+            <input {...register("city")} autocomplete="off" placeholder='Cidade*'/>
             {errors.city && <span className='erro'>Informe a cidade</span>}
-            <input {...register("state")} placeholder='UF*'/>
+            <input {...register("state")} autocomplete="off" placeholder='UF*'/>
             {errors.state && <span className='erro'>Informe a UF</span>}
           </div>
         </Styles.ContentAddress>

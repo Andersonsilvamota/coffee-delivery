@@ -4,9 +4,17 @@ export const ConteinerHome = styled.div`
   padding: 0 15rem;
 `
 
-export const ConteinerBanner = styled.div`
+export const ContainerProduct = styled.div`
   width: 100%;
   height: 34rem;
+  max-width: 90rem;
+  margin-right: auto;
+  margin-left: auto;
+`
+
+export const ConteinerBanner = styled.div`
+  width: 100%;
+  height: 32rem;
   max-width: 90rem;
   margin-right: auto;
   margin-left: auto;
@@ -19,7 +27,8 @@ export const ContentLeft = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
-  padding: 3rem 0;
+  padding: 1.5rem 0;
+
 
   h2 {
     font-size: 48px;
@@ -27,19 +36,22 @@ export const ContentLeft = styled.div`
     font-family: 'Baloo 2', cursive;
     line-height: 130%;
     text-align: start;
-    margin-bottom: 1rem;
-
+    margin-bottom: 2rem;
   }
+
   p {
     color: ${props => props.theme.base['base-subtitle']};
     font-size: 1.25rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 4rem;
   }
+
   div {
     display: grid;
     width: 100%;
     grid-template-columns: 1fr 1fr;
     row-gap: 1.25rem;
+    
+ ;
   }
 
   span {
@@ -84,25 +96,24 @@ export const ContentLeft = styled.div`
 `
 export const ContentRight = styled.div`
   width: 50%;
+  height: 26rem;
   display: flex;
-  align-items: center;
-  justify-content: end;
+  align-items: initial;
+  justify-content: center;
 
   img {
     min-width: 20rem;
     min-height: 20rem;
-    width: 30rem;
-    height: 30rem;
+    width: auto;
+    height: auto;
   }
 `
 
 export const ContentCoffe = styled.div`
-  //margin-top: 4rem;
   width: 100%;
   max-width: 90rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 1.6rem;
   row-gap: 2.5rem;
-
 `

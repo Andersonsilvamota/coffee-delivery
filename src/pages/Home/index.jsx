@@ -35,13 +35,15 @@ export function Home(){
           <img src={imgBanner} />
         </Styles.ContentRight>
       </Styles.ConteinerBanner>
-
+      <Styles.ContainerProduct>
+        
         <h2>Nossos cafés</h2>
         <Styles.ContentCoffe>
         {coffees.map(coffee => (
             <CardCoffee key={coffee.id} coffee={coffee}/>
         ))}
         </Styles.ContentCoffe>
+      </Styles.ContainerProduct>
     </Styles.ConteinerHome>
   )
 }
