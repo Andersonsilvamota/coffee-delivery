@@ -27,7 +27,7 @@ export function Checkout(){
 
   const navigate = useNavigate();
 
-  const { cartItems, valueFinal, valueItems, deliveryValue, changeQuantity, removeCoffeeToCart } = useContext(CartContext)
+  const { cartItems, valueFinal, valueItems, deliveryValue, changeQuantity, removeCoffeeToCart, resetCart } = useContext(CartContext)
   const [quantity, setQuantity] = useState(1)
   const [data, setData] = useState("");
   const [method, setMethod] = useState('') // pode começar vazio, pra não setar nenhum
@@ -53,6 +53,8 @@ export function Checkout(){
     navigate("/success",{
       state: data,
     })
+
+    resetCart()
   }
 
   return(

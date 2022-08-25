@@ -2,12 +2,16 @@ import * as Styles from './styles'
 import imageDelivey from '../../assets/delivery.svg'
 import {MapPin, Timer, CurrencyDollar} from 'phosphor-react'
 import {useLocation} from 'react-router-dom'
+import { useContext } from 'react'
+import { CartContext } from '../../contexts/CartContext'
 
 export function Success(){
-
+  const {cartItems} = useContext(CartContext)
   const {state} = useLocation();
 
-  console.log(state)
+  console.log(cartItems)
+
+  
 
   return (
     <Styles.Conteiner>

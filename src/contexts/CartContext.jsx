@@ -12,6 +12,11 @@ export function CartContextProvider( {children} ) {
   
   let valueFinal = deliveryValue + valueItems
   console.log(valueFinal)
+
+  function resetCart() {
+    setCartItems([])
+  }
+
   function changeQuantity(coffee, name){
     const copyCoffeesCart = [...cartItems]
 
@@ -54,7 +59,8 @@ export function CartContextProvider( {children} ) {
           valueFinal, 
           addCoffeeToCart,
           removeCoffeeToCart, 
-          changeQuantity
+          changeQuantity,
+          resetCart
         }
       }>
       {children}
