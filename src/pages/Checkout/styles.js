@@ -8,7 +8,6 @@ export const Conteiner = styled.div`
     font-size: 18px;
     color: ${props => props.theme.base['base-subtitle']};
     margin-bottom: 2rem;
-
   }
 `
 
@@ -28,8 +27,7 @@ export const ContentCompletOrder = styled.div`
 `
 
 export const ContentAddress = styled.div`
-  width: 40rem;
-  //height: 23.25rem;
+  max-width: 40rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -37,10 +35,12 @@ export const ContentAddress = styled.div`
   padding: 2.5rem;
   border-radius: 6px;
   background-color: ${props => props.theme.base['base-card']};
+
   .erro-metodo-pagamento {
     color: red;
     font-size: 0.75rem;
   }
+
   .form {
     width: 100%;
     display: grid;
@@ -98,9 +98,9 @@ export const ContentAddress = styled.div`
     background-color: ${props => props.theme.base['base-input']};
     transition: 0.4s;
 
-    /* &:focus {
-      border-color:  ${props => props.theme.base['base-input']};;
-    } */
+     &:focus {
+      border-color:  ${props => props.theme.base['base-input']};
+     }
 
     color:  ${props => props.theme.base['base-text']};
     font-size: 0.75rem;
@@ -226,8 +226,6 @@ export const Buttons = styled.div`
   flex-direction: row;
   justify-content: center;
   gap: 1rem;
-
-  
 `
 
 export const ButtonPay = styled.button`
@@ -267,8 +265,6 @@ export const ButtonPay = styled.button`
   &:hover {
     background:  ${props => props.theme.base['base-hover']};
   }
-
-
 `
 
 export const TotalCart = styled.div`

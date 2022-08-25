@@ -18,7 +18,6 @@ export const ContainerCartEmpty = styled.div`
   }
 `
 
-
 export const TextoInfo = styled.strong`
   font-weight: bold;
   font-size: 1.2rem;
@@ -42,9 +41,5 @@ export const ButtonReturnHome = styled.button`
     background-color: ${props => props.theme.produto['yellow']};
     border-color: ${props => props.theme.produto['yellow']};
     transition: background-color 0.6s, color 0.6s, border-color 0.6s;
-
-   
-    
-
   }
 `

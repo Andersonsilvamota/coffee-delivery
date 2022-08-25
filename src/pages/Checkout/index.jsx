@@ -64,7 +64,6 @@ export function Checkout(){
 
   async function handleSave(data){
     await new Promise(resolve => setTimeout(resolve, 2000))
-    console.log(data)
     navigate("/success",{
       state: data,
     })
@@ -253,8 +252,5 @@ export function Checkout(){
       </Styles.ContainerCheckout>
     </Styles.Conteiner>
     ) : <InfoCartEmpty /> 
-      
-    
-    
   )
 }
